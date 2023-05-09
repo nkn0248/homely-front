@@ -8,7 +8,7 @@ import {
 
 const { useDispatch, useSelector } = require("react-redux");
 
-function Counter() {
+function ReduxSample() {
   const dispatch = useDispatch();
   const selector = useSelector((state) => state);
   const users = selectUser(selector);
@@ -51,4 +51,4 @@ function Counter() {
   );
 }
 
-export default Counter;
+export default ReduxSample;

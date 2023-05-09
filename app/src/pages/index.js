@@ -1,6 +1,7 @@
 import Head from "next/head";
 import React from 'react'
-import Counter from "./counter";
+import ReduxSample from "./reduxsample";
+import store from "../store/store"
 
 
 
@@ -14,16 +15,17 @@ export default function Home(props) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Counter/>
+      <ReduxSample/>
     </>
   );
 }
 
 export async function getServerSideProps(context) {
   console.log("### This is Server Side Props");
+  console.log(store.getState())
   const res = await fetch("http://localhost:3000/api/users");
   const data = await res.json()
-  console.log(context);
+  // console.log(context);
 
   return {
     props: { hoge: data },
